@@ -3,8 +3,8 @@ import './sidebar.scss'
 import LogoSsioux from '../../assets/images/logo-ssioux.png'
 import LogoSsiouxSubtitle from '../../assets/images/logo-ssioux-sub.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faHome, faUser } from '@fortawesome/free-solid-svg-icons'
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope, faHome, faPhoneSquare, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 
 const Sidebar = () => {
@@ -47,6 +47,18 @@ const Sidebar = () => {
               icon={faLinkedin}
               color="#4d4d4e"
               className="anchor-icon"
+            />
+          </a>
+        </li>
+        <li>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/ssioux"
+          >
+            <FontAwesomeIcon
+              icon={faGithub}
+              color="#4d4d4e"
             />
           </a>
         </li>
