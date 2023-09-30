@@ -1,8 +1,8 @@
 import './App.scss'
 import { Routes, Route } from 'react-router-dom'
 
-import Layout from './components/Layout/index'
-
+// Components
+import Layout from './components/Layout/Layout'
 
 function App() {
   return (
