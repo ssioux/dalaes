@@ -3,6 +3,7 @@ import LogoTitle from '../../assets/images/logo-ssioux.png'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import AnimatedLetters from '../AnimatedLetters/AnimatedLetters'
+import Logo from './Logo/Logo'
 
 const Home = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
@@ -57,11 +58,12 @@ const Home = () => {
             index={22}
           />
         </h1>
-        <h2>Frontend Developer / Junior </h2>
+        <h2>David Lázaro / Frontend Developer </h2>
         <Link to="/contact" className="flat-button">
           CONTACT ME
         </Link>
       </div>
+      <Logo/>
     </div>
   )
 }
