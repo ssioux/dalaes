@@ -10,11 +10,15 @@ const About = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
 
   useEffect(() => {
-    setLetterClass('text-animate')
-    return setTimeout(()=> {
-      setLetterClass('text-animate-hover')
-    }, 3000)
-  }, [])
+    const letterMouseMovement = () => {
+           setTimeout(()=> {
+       setLetterClass('text-animate-hover')
+     }, 4000)
+    }
+    return (
+     letterMouseMovement()
+        )
+   }, [])
 
   return (
     <>
