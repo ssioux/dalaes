@@ -3,12 +3,14 @@ import AnimatedLetters from '../AnimatedLetters/AnimatedLetters'
 import './about.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngular, faCss3, faGitAlt, faHtml5, faJsSquare, faReact } from '@fortawesome/free-brands-svg-icons'
+import Loader from 'react-loaders'
 
 const About = () => {
 
   const [letterClass, setLetterClass] = useState('text-animate')
 
   useEffect(() => {
+    setLetterClass('text-animate')
     return setTimeout(()=> {
       setLetterClass('text-animate-hover')
     }, 3000)
@@ -62,6 +64,8 @@ const About = () => {
           </div>
         </div>
       </div>
+
+      <Loader type="pacman"/>
       
     </>
   )
