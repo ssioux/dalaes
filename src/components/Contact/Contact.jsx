@@ -25,10 +25,10 @@ const Contact = () => {
 
     try {
       await emailjs.sendForm(
-        'service_ti8mvdo', // serviceID
+        'service_ti8mvdo', // service ID
         'template_mjdwt5g', // template ID
         refForm.current,
-        'WXBFbAxr_Eyb2T4QL'
+        'WXBFbAxr_Eyb2T4QL' // Public_KEY
       )
       alert('Message successfully sent!')
       window.location.reload(false)
@@ -51,7 +51,7 @@ const Contact = () => {
           <p>
             I am interested in companies that can give me the opportunity to
             improve my skills. However, if you have any other requests or
-            questions, don't hesitate to contact me using below form either.
+            questions, do not hesitate to contact me using below form either.
           </p>
           <div className="contact-form">
             <form ref={refForm} onSubmit={sendEmail}>
