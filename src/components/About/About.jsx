@@ -13,7 +13,7 @@ const About = () => {
     const letterMouseMovement = () => {
            setTimeout(()=> {
        setLetterClass('text-animate-hover')
-     }, 4000)
+     }, 3000)
     }
     return (
      letterMouseMovement()
