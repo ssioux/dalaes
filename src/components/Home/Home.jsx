@@ -53,7 +53,7 @@ const Home = () => {
           <AnimatedLetters
             letterClass={letterClass}
             strArray={nameArray}
-            index={15}
+            idx={15}
           />
           <br />
           {/* Animation for 'web developer.' */}

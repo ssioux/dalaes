@@ -1,14 +1,14 @@
 import './animatedletters.scss'
 
 
-
-const AnimatedLetters = ({letterClass, strArray, index }) => {
+// idx => seconds delay of the animation
+const AnimatedLetters = ({letterClass, strArray, idx }) => {
   return (
     <span>
 
 {
     strArray.map((char, i) => (
-      <span key={char + i} className={`${letterClass} _${i + index}`}>
+      <span key={char + i} className={`${letterClass} _${i + idx}`}>
         {char}
       </span>
        
