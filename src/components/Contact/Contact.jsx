@@ -39,6 +39,7 @@ const Contact = () => {
 
   return (
     <>
+    
       <div className="container contact-page">
         <div className="text-zone">
           <h1>
@@ -88,6 +89,16 @@ const Contact = () => {
               </ul>
             </form>
           </div>
+        </div>
+        <div className='info-map'>
+          David Lázaro,
+          <br />
+          Spain,
+          <br />
+          Calle Vitoria 178, 09007 <br />
+          Burgos <br />
+         <span>dlazaro7@gmail.com</span> 
+
         </div>
       </div>
 
