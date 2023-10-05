@@ -139,6 +139,7 @@
     }
 
     nav {
+      display: block;
       width: 100%;
       top: 0;
       left: 0;
@@ -148,6 +149,11 @@
       z-index: 2;
       position: fixed;
 
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       a:after {
         opacity: 1;
         position: initial;
@@ -158,9 +164,10 @@
       a svg {
         opacity: 1 !important;
       }
-      &.mobile-show {
-        display: block;
-      }
+    }
+
+    &.mobile-show {
+      display: block;
     }
 
     .hamburguer-icon,
