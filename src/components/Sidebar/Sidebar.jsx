@@ -3,18 +3,23 @@ import './sidebar.scss'
 import LogoSsioux from '../../assets/images/logo-ssioux.png'
 import LogoSsiouxSubtitle from '../../assets/images/logo-ssioux-sub.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faEnvelope, faHome, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faClose, faEnvelope, faHome, faUser } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { useState } from 'react'
 
 
 const Sidebar = () => {
+
+  // shows or not hamburguer menu
+  const [showNav, setShowNav] = useState(false)
+
   return (
     <div className="nav-bar">
       <Link className="logo" to="/">
         <img src={LogoSsioux} alt="logo" />
         <img className="sub-logo" src={LogoSsiouxSubtitle} alt="Ssioux" />
       </Link>
-      <nav>
+      <nav className={showNav ? 'mobile-show' : ''} >
         <NavLink exact="true" activeclassname="active" to="/">
           <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
         </NavLink>
@@ -34,6 +39,13 @@ const Sidebar = () => {
         >
           <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
         </NavLink>
+        <FontAwesomeIcon 
+        onClick={()=> setShowNav(false)}
+        icon={faClose}
+        color="#ffd700"
+        size="3x"
+        className='close-icon'
+        />
       </nav>
 
       <ul>
@@ -64,6 +76,7 @@ const Sidebar = () => {
         </li>
       </ul>
       <FontAwesomeIcon 
+      onClick={()=> setShowNav(true)}
       icon={faBars}
       color="#ffd700"
       size="3x"

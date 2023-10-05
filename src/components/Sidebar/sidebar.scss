@@ -121,22 +121,24 @@
   }
 }
 
-.hamburguer-icon {
+.hamburguer-icon,
+.close-icon {
   display: none;
 }
 
 @media screen and (max-width: 1200px) {
-  .nav-bar { 
+  .nav-bar {
     background: transparent;
     position: initial;
     height: auto;
     min-height: auto;
 
-     ul, nav {
+    ul,
+    nav {
       display: none;
-     }
+    }
 
-     nav {
+    nav {
       width: 100%;
       top: 0;
       left: 0;
@@ -150,15 +152,19 @@
         opacity: 1;
         position: initial;
         width: auto;
-        margin-left: 10PX;
+        margin-left: 10px;
       }
 
       a svg {
         opacity: 1 !important;
       }
-     }
+      &.mobile-show {
+        display: block;
+      }
+    }
 
-    .hamburguer-icon {
+    .hamburguer-icon,
+    .close-icon {
       display: block;
       position: absolute;
       top: 15px;
