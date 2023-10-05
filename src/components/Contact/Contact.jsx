@@ -4,6 +4,7 @@ import AnimatedLetters from '../AnimatedLetters/AnimatedLetters'
 import { useEffect, useRef, useState } from 'react'
 
 import emailjs from '@emailjs/browser'
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 
 const Contact = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
@@ -20,6 +21,7 @@ const Contact = () => {
   }, [])
 
   // SubmitForm sending Email
+  // Email Library - https://www.emailjs.com/docs/examples/reactjs/
   const sendEmail = async (e) => {
     e.preventDefault()
 
@@ -39,7 +41,6 @@ const Contact = () => {
 
   return (
     <>
-    
       <div className="container contact-page">
         <div className="text-zone">
           <h1>
@@ -90,15 +91,23 @@ const Contact = () => {
             </form>
           </div>
         </div>
-        <div className='info-map'>
+        <div className="info-map">
           David Lázaro,
           <br />
           Spain,
           <br />
           Calle Vitoria 178, 09007 <br />
           Burgos <br />
-         <span>dlazaro7@gmail.com</span> 
-
+          <span>dlazaro7@gmail.com</span>
+        </div>
+        <div className="map-wrap"> 
+        {/* Map library - https://react-leaflet.js.org/ */}
+        <MapContainer center={[42.35165648088065, -3.6716139533494894]} zoom={13}>
+            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+            <Marker position={[42.35165648088065, -3.6716139533494894]}>
+              <Popup>David Lázaro lives here, come over for a cup of coffee :)</Popup>
+            </Marker>
+          </MapContainer>
         </div>
       </div>
 
