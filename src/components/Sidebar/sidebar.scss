@@ -139,7 +139,6 @@
     }
 
     nav {
-      display: block;
       width: 100%;
       top: 0;
       left: 0;
@@ -164,10 +163,9 @@
       a svg {
         opacity: 1 !important;
       }
-    }
-
-    &.mobile-show {
-      display: block;
+      &.mobile-show {
+        display: block;
+      }
     }
 
     .hamburguer-icon,

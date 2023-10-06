@@ -24,13 +24,15 @@ const Sidebar = () => {
         <img className="sub-logo" src={LogoSsiouxSubtitle} alt="Ssioux" />
       </Link>
       <nav className={showNav ? 'mobile-show' : ''}>
-        <NavLink 
-        onClick={()=> setShowNav(false)}
-        exact="true" 
-        activeclassname="active" 
-        to="/">
+        <NavLink
+          onClick={() => setShowNav(false)}
+          exact="true"
+          activeclassname="active"
+          to="/"
+        >
           <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
         </NavLink>
+        
         <NavLink
           onClick={() => setShowNav(false)}
           exact="true"
@@ -78,6 +80,7 @@ const Sidebar = () => {
           </a>
         </li>
       </ul>
+
       <FontAwesomeIcon
         onClick={() => setShowNav(true)}
         icon={faBars}
