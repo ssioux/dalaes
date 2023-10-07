@@ -38,7 +38,7 @@
   animation-delay: 1s;
 }
 
-.about-page, 
+.about-page,
 .contact-page {
   .text-zone {
     position: absolute;
@@ -109,5 +109,17 @@
     &:hover {
       color: #fff;
     }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .page {
+    position: initial;
+  }
+
+  .container {
+    position: initial;
+    height: auto;
+    min-height: auto;
   }
 }
