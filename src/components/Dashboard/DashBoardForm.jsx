@@ -1,11 +1,12 @@
 import { useRef } from 'react'
-import { auth } from '../../firebase'
+import { auth, storage } from '../../firebase'
+
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 
 const DashBoardForm = () => {
   const form = useRef()
-  console.log("🚀 ~ file: DashBoardForm.jsx:6 ~ DashBoardForm ~ form:", form)
 
-  const submitPortfolio = (e) => {
+  const submitPortfolio = async (e) => {
     e.preventDefault()
 
     const name = form.current[0]?.value
@@ -14,8 +15,48 @@ const DashBoardForm = () => {
     const codeUrl = form.current[3]?.value
     const image = form.current[4]?.files[0]
 
-    console.log(name, descrption, webUrl, codeUrl, image)
 
+    const storageRef = ref(storage, `portfolio/${image.name}`) // 1- storage, 2-image-name-URL
+    // 1 {the ref}, 2 {file it-self}
+    uploadBytes(storageRef, image).then(
+      (snapshot) => {
+        getDownloadURL(snapshot.ref).then(
+          (downloadUrl) => {
+            savePortfolio({
+              name,
+              descrption,
+              webUrl,
+              codeUrl,
+              image: downloadUrl,
+            })
+          },
+          (error) => {
+            console.log(error);
+            savePortfolio({
+              name,
+              descrption,
+              webUrl,
+              codeUrl,
+              image: null,
+            })
+          }
+        )
+      },
+      (error) => {
+        console.log(error);
+        savePortfolio({
+          name,
+          descrption,
+          webUrl,
+          codeUrl,
+          image: null,
+        })
+      }
+    )
+
+    const savePortfolio = (portfolio) => {
+      console.log(portfolio)
+    }
   }
 
   return (
