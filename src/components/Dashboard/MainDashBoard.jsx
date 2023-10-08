@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react'
 // Firebase Auth
 import { onAuthStateChanged, getAuth } from 'firebase/auth'
 // Components
-import Login from '../Login/Login'
-import Main from './Main'
+import Login from './Login'
+import DashBoardForm from './DashBoardForm'
 
-const Dashboard = () => {
+const MainDashboard = () => {
   const [user, setUser] = useState(null)
   const auth = getAuth()
 
@@ -17,7 +17,7 @@ const Dashboard = () => {
     })
   }, [])
 
-  return <div>{user ? <Main /> : <Login />}</div>
+  return <div>{user ? <DashBoardForm /> : <Login />}</div>
 }
 
-export default Dashboard
+export default MainDashboard
