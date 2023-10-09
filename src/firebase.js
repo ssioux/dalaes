@@ -1,20 +1,18 @@
 import { initializeApp } from 'firebase/app'
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth'
 import { getStorage } from 'firebase/storage'
-import { getFirestore } from 'firebase/firestore/lite'
+import { getFirestore } from 'firebase/firestore'
 
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyDgXRRXu_KZPP52Xp2pkLKo_nVBzA2XOEQ',
-  authDomain: 'ssioux-porfolio-dashboard.firebaseapp.com',
-  projectId: 'ssioux-porfolio-dashboard',
-  storageBucket: 'ssioux-porfolio-dashboard.appspot.com',
-  messagingSenderId: '412375272213',
-  appId: '1:412375272213:web:400cb84fb92060652af71c',
-}
-
+  apiKey: "AIzaSyDXGsCnJDh9SQNaPKkEluPOEOus3f9uig0",
+  authDomain: "dalaes-a85cb.firebaseapp.com",
+  projectId: "dalaes-a85cb",
+  storageBucket: "dalaes-a85cb.appspot.com",
+  messagingSenderId: "794215958928",
+  appId: "1:794215958928:web:cd6a314de71c27f04c8b15"
+};
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
 // Authorization
