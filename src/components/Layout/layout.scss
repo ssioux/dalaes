@@ -39,16 +39,9 @@
 }
 
 .about-page,
-.contact-page {
-  .text-zone {
-    position: absolute;
-    left: 10%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 35%;
-    vertical-align: middle;
-    display: table-cell;
-    max-height: 90%;
+.contact-page,
+.portfolio-page {
+
 
     h1 {
       font-size: 53px;
@@ -103,6 +96,16 @@
         animation-delay: 1.3s;
       }
     }
+  .text-zone {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 35%;
+    vertical-align: middle;
+    display: table-cell;
+    max-height: 90%;
+
   }
 
   .text-animate-hover {
@@ -123,7 +126,8 @@
     min-height: auto;
 
   &.about-page,
-  &.contact-page {
+  &.contact-page,
+  &.portfolio-page {
     .text-zone {
       position: initial;
       transform: none;
