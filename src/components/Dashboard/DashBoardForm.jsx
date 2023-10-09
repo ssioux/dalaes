@@ -1,7 +1,9 @@
 import { useRef } from 'react'
-import { auth, storage } from '../../firebase'
+import { auth, storage, db } from '../../firebase'
 
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
+import { addDoc } from 'firebase/firestore'
+import { collection } from 'firebase/firestore/lite'
 
 const DashBoardForm = () => {
   const form = useRef()
@@ -15,7 +17,7 @@ const DashBoardForm = () => {
     const codeUrl = form.current[3]?.value
     const image = form.current[4]?.files[0]
 
-
+    // * upload image to firebaseStorage
     const storageRef = ref(storage, `portfolio/${image.name}`) // 1- storage, 2-image-name-URL
     // 1 {the ref}, 2 {file it-self}
     uploadBytes(storageRef, image).then(
@@ -31,7 +33,7 @@ const DashBoardForm = () => {
             })
           },
           (error) => {
-            console.log(error);
+            console.log(error)
             savePortfolio({
               name,
               descrption,
@@ -43,7 +45,7 @@ const DashBoardForm = () => {
         )
       },
       (error) => {
-        console.log(error);
+        console.log(error)
         savePortfolio({
           name,
           descrption,
@@ -54,8 +56,15 @@ const DashBoardForm = () => {
       }
     )
 
-    const savePortfolio = (portfolio) => {
+    const savePortfolio = async (portfolio) => {
       console.log(portfolio)
+
+      try {
+        await addDoc(collection(db, 'portfolio'), portfolio) // 1-database, 2-collection_name, 3-portfolio itself to add
+        window.location.reload(false)
+      } catch (error) {
+        alert('Failed to add portfolio')
+      }
     }
   }
 
