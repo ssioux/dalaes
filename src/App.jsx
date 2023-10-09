@@ -7,6 +7,7 @@ import Home from './components/Home/Home'
 import About from './components/About/About'
 import Contact from './components/Contact/Contact'
 import MainDashBoard from './components/Dashboard/MainDashBoard'
+import Portfolio from './components/Portfolio/Portfolio'
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/dashboard" element={<MainDashBoard />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+
         </Route>
       </Routes>
     </>
