@@ -57,8 +57,6 @@ const DashBoardForm = () => {
     )
 
     const savePortfolio = async (portfolio) => {
-      console.log(portfolio)
-
       try {
         await addDoc(collection(db, 'portfolio'), portfolio) // 1-database, 2-collection_name, 3-portfolio itself to add
         window.location.reload(false)
