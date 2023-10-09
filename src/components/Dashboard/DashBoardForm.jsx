@@ -3,7 +3,7 @@ import { auth, storage, db } from '../../firebase'
 
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { addDoc } from 'firebase/firestore'
-import { collection } from 'firebase/firestore/lite'
+import { collection } from 'firebase/firestore'
 
 const DashBoardForm = () => {
   const form = useRef()
@@ -63,6 +63,7 @@ const DashBoardForm = () => {
         await addDoc(collection(db, 'portfolio'), portfolio) // 1-database, 2-collection_name, 3-portfolio itself to add
         window.location.reload(false)
       } catch (error) {
+        console.log(error)
         alert('Failed to add portfolio')
       }
     }
