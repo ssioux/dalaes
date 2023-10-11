@@ -12,7 +12,7 @@ const DashBoardForm = () => {
     e.preventDefault()
 
     const name = form.current[0]?.value
-    const descrption = form.current[1]?.value
+    const description = form.current[1]?.value
     const webUrl = form.current[2]?.value
     const codeUrl = form.current[3]?.value
     const image = form.current[4]?.files[0]
@@ -26,7 +26,7 @@ const DashBoardForm = () => {
           (downloadUrl) => {
             savePortfolio({
               name,
-              descrption,
+              description,
               webUrl,
               codeUrl,
               image: downloadUrl,
@@ -36,7 +36,7 @@ const DashBoardForm = () => {
             console.log(error)
             savePortfolio({
               name,
-              descrption,
+              description,
               webUrl,
               codeUrl,
               image: null,
@@ -48,7 +48,7 @@ const DashBoardForm = () => {
         console.log(error)
         savePortfolio({
           name,
-          descrption,
+          description,
           webUrl,
           codeUrl,
           image: null,
