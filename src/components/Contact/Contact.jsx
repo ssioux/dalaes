@@ -28,10 +28,10 @@ const Contact = () => {
 
     try {
       await emailjs.sendForm(
-        'service_ti8mvdo', // service ID
-        'template_mjdwt5g', // template ID
+        import.meta.env.VITE_SERVICE_ID, // service ID
+        import.meta.env.VITE_TEMPLATE_ID, // template ID
         refForm.current,
-        'WXBFbAxr_Eyb2T4QL' // Public_KEY
+        import.meta.env.VITE_PUBLIC_KEY, // Public_KEY
       )
       alert('Message successfully sent!')
       window.location.reload(false)
