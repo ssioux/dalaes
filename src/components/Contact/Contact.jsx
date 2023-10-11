@@ -47,7 +47,7 @@ const Contact = () => {
           <h1>
             <AnimatedLetters
               letterClass={letterClass}
-              strArray={['C', 'o', 'n', 't', 'a', 'c', 't', ' ', 'm', 'e']}
+              strArray={'Contact me'.split('')}
               idx={15}
             />
           </h1>
@@ -101,12 +101,17 @@ const Contact = () => {
           Burgos <br />
           <span>dlazaro7@gmail.com</span>
         </div>
-        <div className="map-wrap"> 
-        {/* Map library - https://react-leaflet.js.org/ */}
-        <MapContainer center={[42.35165648088065, -3.6716139533494894]} zoom={13}>
+        <div className="map-wrap">
+          {/* Map library - https://react-leaflet.js.org/ */}
+          <MapContainer
+            center={[42.35165648088065, -3.6716139533494894]}
+            zoom={13}
+          >
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
             <Marker position={[42.35165648088065, -3.6716139533494894]}>
-              <Popup>David Lázaro lives here, come over for a cup of coffee :)</Popup>
+              <Popup>
+                David Lázaro lives here, come over for a cup of coffee :)
+              </Popup>
             </Marker>
           </MapContainer>
         </div>

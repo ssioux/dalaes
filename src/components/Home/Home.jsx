@@ -7,23 +7,6 @@ import Logo from './Logo/Logo'
 
 const Home = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
-  const nameArray = ['s', 'i', 'o', 'u', 'x']
-  const jobArray = [
-    'w',
-    'e',
-    'b',
-    ' ',
-    'd',
-    'e',
-    'v',
-    'e',
-    'l',
-    'o',
-    'p',
-    'e',
-    'r',
-    '.',
-  ]
 
   useEffect(() => {
     const letterMouseMovement = setTimeout(() => {
@@ -51,14 +34,14 @@ const Home = () => {
           {/* Animation for 'sioux' */}
           <AnimatedLetters
             letterClass={letterClass}
-            strArray={nameArray}
+            strArray={'sioux'.split('')}
             idx={15}
           />
           <br />
           {/* Animation for 'web developer.' */}
           <AnimatedLetters
             letterClass={letterClass}
-            strArray={jobArray}
+            strArray={'Web developer.'.split('')}
             idx={22}
           />
         </h1>
