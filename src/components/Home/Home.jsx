@@ -26,13 +26,14 @@ const Home = () => {
   ]
 
   useEffect(() => {
-    const letterMouseMovement = () => {
-      setTimeout(() => {
-        setLetterClass('text-animate-hover')
-      }, 4000)
+    const letterMouseMovement = setTimeout(() => {
+      setLetterClass('text-animate-hover')
+    }, 4000)
+
+    return () => {
+      clearTimeout(letterMouseMovement)
     }
-    return letterMouseMovement()
-  }, [])
+  })
 
   return (
     <div className="container home-page">

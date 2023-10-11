@@ -12,13 +12,14 @@ const Contact = () => {
 
   // Animated Letters
   useEffect(() => {
-    const letterMouseMovement = () => {
-      setTimeout(() => {
-        setLetterClass('text-animate-hover')
-      }, 3000)
+    const letterMouseMovement = setTimeout(() => {
+      setLetterClass('text-animate-hover')
+    }, 3000)
+
+    return () => {
+      clearTimeout(letterMouseMovement)
     }
-    return letterMouseMovement()
-  }, [])
+  })
 
   // SubmitForm sending Email
   // Email Library - https://www.emailjs.com/docs/examples/reactjs/
