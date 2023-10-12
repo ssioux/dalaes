@@ -1,5 +1,5 @@
 import './home.scss'
-import LogoTitle from '../../assets/images/logo-ssioux.png'
+import LogoTitle from '../../assets/images/Logo-d.png'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import AnimatedLetters from '../AnimatedLetters/AnimatedLetters'
@@ -34,7 +34,7 @@ const Home = () => {
           {/* Animation for 'sioux' */}
           <AnimatedLetters
             letterClass={letterClass}
-            strArray={'sioux'.split('')}
+            strArray={'avid Lázaro'.split('')}
             idx={15}
           />
           <br />

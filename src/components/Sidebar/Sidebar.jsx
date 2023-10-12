@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom'
 import './sidebar.scss'
-import LogoSsioux from '../../assets/images/logo-ssioux.png'
+import LogoSsioux from '../../assets/images/Logo-d.png'
 import LogoSsiouxSubtitle from '../../assets/images/logo-ssioux-sub.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
