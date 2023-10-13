@@ -68,7 +68,7 @@ const Portfolio = () => {
             idx={15}
           />
         </h1>
-        <div>{renderPortfolio(portfolio)}</div>
+        <div className='render-portfolio'>{renderPortfolio(portfolio)}</div>
       </div>
       <Loader type="pacman" />
     </>

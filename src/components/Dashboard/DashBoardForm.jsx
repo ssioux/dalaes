@@ -32,8 +32,7 @@ const DashBoardForm = () => {
               image: downloadUrl,
             })
           },
-          (error) => {
-            console.log(error)
+          () => {
             savePortfolio({
               name,
               description,
@@ -44,8 +43,7 @@ const DashBoardForm = () => {
           }
         )
       },
-      (error) => {
-        console.log(error)
+      () => {
         savePortfolio({
           name,
           description,
@@ -61,7 +59,6 @@ const DashBoardForm = () => {
         await addDoc(collection(db, 'portfolio'), portfolio) // 1-database, 2-collection_name, 3-portfolio itself to add
         window.location.reload(false)
       } catch (error) {
-        console.log(error)
         alert('Failed to add portfolio')
       }
     }
