@@ -5,10 +5,17 @@ import { useEffect, useState } from 'react'
 import { getDocs, collection } from 'firebase/firestore'
 import { db } from '../../firebase'
 
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import * as freeSolid from '@fortawesome/free-solid-svg-icons'
+import * as freesvg from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 const Portfolio = () => {
+  console.log("freeSvg", freesvg)
+  console.log("freeSolid", freeSolid)
+
   const [letterClass, setLetterClass] = useState('text-animate')
   const [portfolio, setPortfolio] = useState([])
-  
 
   useEffect(() => {
     const letterMouseMovement = setTimeout(() => {
@@ -47,8 +54,20 @@ const Portfolio = () => {
               <div className="content">
                 <p className="title">{port.name}</p>
                 <h4 className="description">{port.description}</h4>
-                <button className="btn" onClick={() => window.open(port.webUrl)}>
+                <button
+                  className="btn"
+                  onClick={() => window.open(port.webUrl)}
+                >
                   View
+                </button>
+
+                <button
+                  className="btn"
+                  onClick={() => window.open(port.codeUrl)}
+                >
+                   C<FontAwesomeIcon icon={freesvg.faGithub} color="#4d4d4e" />de
+                    
+               
                 </button>
               </div>
             </div>
@@ -68,7 +87,7 @@ const Portfolio = () => {
             idx={15}
           />
         </h1>
-        <div className='render-portfolio'>{renderPortfolio(portfolio)}</div>
+        <div className="render-portfolio">{renderPortfolio(portfolio)}</div>
       </div>
       <Loader type="pacman" />
     </>
