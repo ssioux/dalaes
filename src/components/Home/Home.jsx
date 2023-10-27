@@ -45,12 +45,15 @@ const Home = () => {
             idx={22}
           />
         </h1>
-        <h2>David Lázaro / Frontend Developer </h2>
+        <h2>Frontend Developer </h2>
         <Link to="/contact" className="flat-button">
           CONTACT ME
         </Link>
       </div>
-      <Logo />
+    
+          <Logo />
+
+    
     </div>
   )
 }
