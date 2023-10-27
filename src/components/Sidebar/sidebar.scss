@@ -95,6 +95,12 @@
         content: 'PORTFOLIO';
       }
     }
+    a.chess-link {
+      &:after {
+        content: 'CHESS';
+      }
+    }
+
     a.active {
       svg {
         color: #ffd700;
@@ -159,7 +165,7 @@
         justify-content: center;
         align-items: center;
       }
-      
+
       a:after {
         opacity: 1;
         position: initial;

@@ -5,6 +5,7 @@ import LogoDalaesSubtitle from '../../assets/images/logo-ssioux-sub2.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faBars,
+  faChess,
   faClose,
   faEnvelope,
   faHome,
@@ -63,6 +64,17 @@ const Sidebar = () => {
         >
           <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
         </NavLink>
+
+        <NavLink
+          onClick={() => setShowNav(false)}
+          exact="true"
+          activeclassname="active"
+          className="chess-link"
+          to="/chess"
+        >
+          <FontAwesomeIcon icon={faChess} color="#4d4d4e" />
+        </NavLink>
+
         <FontAwesomeIcon
           onClick={() => setShowNav(false)}
           icon={faClose}

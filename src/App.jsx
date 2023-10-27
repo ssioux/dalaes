@@ -8,6 +8,8 @@ import About from './components/About/About'
 import Contact from './components/Contact/Contact'
 import MainDashBoard from './components/Dashboard/MainDashBoard'
 import Portfolio from './components/Portfolio/Portfolio'
+import Chess from './components/Chess/Chess'
+
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/dashboard" element={<MainDashBoard />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/chess" element={<Chess />} />
+
 
         </Route>
       </Routes>
