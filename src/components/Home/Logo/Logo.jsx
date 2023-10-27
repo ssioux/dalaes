@@ -1,15 +1,14 @@
 // scss
 import './logo.scss'
-import 'animate.css';
 // D
 import LogoSioux from '../../../assets/images/Logo-d.png'
 
 const Logo = () => {
   return (
-    <div className="logo-container">
+    <div className="logo-container scale-up-left">
   
       <img
-        className="solid-logo"
+        className="solid-logo blur-in"
         src={LogoSioux}
         alt="D"
       />
