@@ -22,7 +22,9 @@
     "react-leaflet": "^4.2.1",
     "react-loaders": "^3.0.1",
     "react-router-dom": "^6.16.0",
-    "sass": "^1.68.0"
+    "sass": "^1.68.0",
+    "react-chessboard": "^1.2.5",
+    "chess.js": "^0.13.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
