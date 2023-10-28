@@ -1,10 +1,9 @@
-import './chess.scss'
+import './game.scss'
 import AnimatedLetters from '../AnimatedLetters/AnimatedLetters'
 import { useEffect, useState } from 'react'
 import Loader from 'react-loaders'
 
-function Chess() {
-
+function Game() {
   const [letterClass, setLetterClass] = useState('text-animate')
 
   useEffect(() => {
@@ -27,11 +26,10 @@ function Chess() {
             idx={15}
           />
         </h1>
-      
       </div>
       <Loader type="pacman" />
     </>
   )
 }
 
-export default Chess
+export default Game

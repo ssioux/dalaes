@@ -8,7 +8,7 @@ import About from './components/About/About'
 import Contact from './components/Contact/Contact'
 import MainDashBoard from './components/Dashboard/MainDashBoard'
 import Portfolio from './components/Portfolio/Portfolio'
-import Chess from './components/Chess/Chess'
+import Chess from './components/Chess/Game'
 
 
 function App() {
