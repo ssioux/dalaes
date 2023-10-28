@@ -5,10 +5,19 @@ import Loader from 'react-loaders'
 
 import {Chessboard} from 'react-chessboard'
 import {Chess} from 'chess.js'
+import { calculateBestMove, initGame } from "chess-ai";
 
 function Game() {
+
   const [letterClass, setLetterClass] = useState('text-animate')
+  
+
+
+  const [game, setGame] = useState(new Chess());
+
   useEffect(() => {
+
+    initGame(game, 1);
     const letterMouseMovement = setTimeout(() => {
       setLetterClass('text-animate-hover')
     }, 3000)
@@ -18,8 +27,6 @@ function Game() {
     }
   })
 
-  const [game, setGame] = useState(new Chess());
-  console.log("first",game)
   //Let's perform a function on the game state 
    
   function safeGameMutate(modify){
@@ -38,10 +45,11 @@ function Game() {
     if(game.game_over() || game.in_draw() || possibleMove.length === 0) return;
     //select random move
   
-    const randomIndex = Math.floor(Math.random() * possibleMove.length);
+    // const randomIndex = Math.floor(Math.random() * possibleMove.length);
+   
    //play random move 
    safeGameMutate((game)=>{
-    game.move(possibleMove[randomIndex]);
+    game.move(calculateBestMove());
    })
   }
   

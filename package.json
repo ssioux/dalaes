@@ -15,16 +15,17 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "animate.css": "^4.1.1",
+    "chess-ai": "^0.0.2",
+    "chess.js": "^0.13.3",
     "firebase": "^10.4.0",
     "loaders.css": "^0.1.2",
     "react": "^18.2.0",
+    "react-chessboard": "^1.2.5",
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.2.1",
     "react-loaders": "^3.0.1",
     "react-router-dom": "^6.16.0",
-    "sass": "^1.68.0",
-    "react-chessboard": "^1.2.5",
-    "chess.js": "^0.13.3"
+    "sass": "^1.68.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
