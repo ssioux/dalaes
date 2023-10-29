@@ -1,18 +1,17 @@
 .chess-page {
   position: initial;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
-  h1.page-title {
-    margin-left: 100px;
-  }
+
   .board {
     display: flex;
-
     align-items: center;
     justify-content: center;
-    width: 100%;
 
     .bordered {
-      border: 6px solid red;
+      border: 6px ridge rgb(235, 241, 145);
     }
   }
   .onCheck {

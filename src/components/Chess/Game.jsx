@@ -9,25 +9,17 @@ import { Chess } from 'chess.js'
 import { calculateBestMove, initGame } from 'chess-ai'
 
 function Game() {
-  console.log('chess', Chess)
-  console.log('board', Chessboard)
+  
 
   const [letterClass, setLetterClass] = useState('text-animate')
   // new Game
   const chess = new Chess()
-  console.log('chess', chess)
+
   const [game, setGame] = useState(chess)
 
   // TODO: when the game is over alert the user
   useEffect(() => {
-    initGame(game, 1)
-    const letterMouseMovement = setTimeout(() => {
-      setLetterClass('text-animate-hover')
-    }, 3000)
-
-    return () => {
-      clearTimeout(letterMouseMovement)
-    }
+    initGame(game, 1) // From 0 - 2 ai-level
   })
 
   //Let's perform a function on the game state
@@ -53,9 +45,7 @@ function Game() {
     ) {
       alert('Game is over')
     }
-    if (game.in_check()) {
-      console.log('first')
-    }
+ 
     //select ai move
     const aiMove = calculateBestMove()
 
@@ -76,6 +66,10 @@ function Game() {
         promotion: 'q',
       })
     })
+
+    if (game.in_check()) {
+      console.log('inCHECK, onDropFunction') // TODO: function for change the color of the king
+    }
     //illegal move
     if (move == null) return false
     //valid move
@@ -84,16 +78,10 @@ function Game() {
   }
 
   return (
+
+    // className={`${letterClass} _${i + idx}`}
     <>
       <div className="container chess-page">
-        <h1 className="page-title">
-          <AnimatedLetters
-            letterClass={letterClass}
-            strArray={'Chess'.split('')}
-            idx={15}
-          />
-        </h1>
-
         <div className="board">
           <div className="bordered">
             <Chessboard
