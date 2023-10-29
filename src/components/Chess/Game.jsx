@@ -1,6 +1,5 @@
 import './game.scss'
 
-import AnimatedLetters from '../AnimatedLetters/AnimatedLetters'
 import { useEffect, useState } from 'react'
 import Loader from 'react-loaders'
 
@@ -9,9 +8,6 @@ import { Chess } from 'chess.js'
 import { calculateBestMove, initGame } from 'chess-ai'
 
 function Game() {
-  
-
-  const [letterClass, setLetterClass] = useState('text-animate')
   // new Game
   const chess = new Chess()
 
@@ -45,7 +41,7 @@ function Game() {
     ) {
       alert('Game is over')
     }
- 
+
     //select ai move
     const aiMove = calculateBestMove()
 
@@ -78,7 +74,6 @@ function Game() {
   }
 
   return (
-
     // className={`${letterClass} _${i + idx}`}
     <>
       <div className="container chess-page">
