@@ -6,13 +6,11 @@ import Loader from 'react-loaders'
 import { Chessboard } from 'react-chessboard'
 import { Chess } from 'chess.js'
 import { calculateBestMove, initGame } from 'chess-ai'
-import { faL } from '@fortawesome/free-solid-svg-icons'
 
 function Game() {
-
   // ai-skill (0-2)
   const [aiSkill, setAiSkill] = useState(0)
-  console.log("first", aiSkill)
+  console.log('first', aiSkill)
   // inCheck Alert
   const [inCheckAlert, setInCheckAlert] = useState('bordered')
   // new Game
@@ -100,10 +98,19 @@ function Game() {
     <>
       <div className="container chess-page">
         <div className="board">
-          Difficulty:
-          <button onClick={() => setAiSkill(0)} className="chess-btn">Easy</button>
-          <button onClick={() => setAiSkill(1)} className="chess-btn">Medium</button>
-          <button onClick={() => setAiSkill(2)} className="chess-btn">Hard</button>
+          <dir className="btn-group">
+            Difficulty:
+            <button onClick={() => setAiSkill(0)} className="chess-btn">
+              Easy
+            </button>
+            <button onClick={() => setAiSkill(1)} className="chess-btn">
+              Medium
+            </button>
+            <button onClick={() => setAiSkill(2)} className="chess-btn">
+              Hard
+            </button>
+          </dir>
+
           <div className={`${inCheckAlert}`}>
             <Chessboard
               position={game.fen()}

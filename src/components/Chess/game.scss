@@ -10,30 +10,29 @@
     font-size: 1.5rem;
     font-family: 'Coolvetica', 'Lucida Sans Regular', 'Lucida Grande',
       'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    
+
+    .btn-group {
       .chess-btn {
         cursor: pointer;
         background-color: #022c4360;
         font-size: 1.7rem;
-        font-family:'Times New Roman', Times, serif;
+        font-family: 'Times New Roman', Times, serif;
         color: #ffd700;
         width: 100px;
         margin-top: 0px;
         margin-right: 15px;
-        margin-left: 10px;
-        margin-bottom: 10px;
-
-        border: 6px ridge #022c4360;
+        margin-left: 15px;
+        border: 3px ridge #022c4360;
       }
       .chess-btn:hover {
-        border: 6px ridge #ffd700;
+        border: 3px ridge #ffd70060;
       }
       .chess-btn:focus {
-        background-color: #ffd700;
+        background-color: #ffd700bb;
         color: #022c43;
-        border: 6px ridge #022c43;
+        border: 3px solid #022c4360;
       }
-    
+    }
 
     .bordered {
       border: 6px ridge #022c4360;
