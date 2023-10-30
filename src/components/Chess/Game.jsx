@@ -17,12 +17,25 @@ function Game() {
   const chess = new Chess()
   const [game, setGame] = useState(chess)
 
-  // TODO: Pieces in danger?
-
   useEffect(() => {
     initGame(game, aiSkill) // From 0 - 2 ai-level
-  })
+  }, [game, aiSkill])
 
+  // Dificulty
+  const easy = () => {
+    setAiSkill(0)
+    game.reset()
+  }
+
+  const medium = () => {
+    setAiSkill(1)
+    game.reset()
+  }
+
+  const hard = () => {
+    setAiSkill(2)
+    game.reset()
+  }
   //Let's perform a function on the game state
 
   function safeGameMutate(modify) {
@@ -100,13 +113,13 @@ function Game() {
         <div className="board">
           <dir className="btn-group">
             Difficulty:
-            <button onClick={() => setAiSkill(0)} className="chess-btn">
+            <button onClick={easy} className="chess-btn">
               Easy
             </button>
-            <button onClick={() => setAiSkill(1)} className="chess-btn">
+            <button onClick={medium} className="chess-btn">
               Medium
             </button>
-            <button onClick={() => setAiSkill(2)} className="chess-btn">
+            <button onClick={hard} className="chess-btn">
               Hard
             </button>
           </dir>

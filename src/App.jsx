@@ -24,6 +24,7 @@ function App() {
           <Route path="/chess" element={<Chess />} />
 
 
+
         </Route>
       </Routes>
     </>
