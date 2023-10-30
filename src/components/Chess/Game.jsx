@@ -18,7 +18,7 @@ function Game() {
   // TODO: Pieces in danger?
 
   useEffect(() => {
-    initGame(game, 1) // From 0 - 2 ai-level
+    initGame(game, 2) // From 0 - 2 ai-level
   })
 
   //Let's perform a function on the game state
@@ -33,19 +33,20 @@ function Game() {
   //Movement of computer
   function makeRandomMove() {
     const possibleMove = game.moves()
-
-    // exit if the game is over
-
-    if (
-      game.game_over() ||
-      game.in_draw() ||
-      possibleMove.length === 0 ||
-      game.in_checkmate()
-    ) {
-      alert('Check Mate, You Win')
+    // 1. Draw
+    if (game.in_draw() || possibleMove.length === 0) {
+      alert('Draw')
+    }
+    // 2. Check Mate
+    if (game.in_checkmate()) {
+      alert('Check Mate')
       window.location.reload(false)
     }
-
+    // 3. Game Over
+    if (game.game_over()) {
+      alert('Game Over')
+      window.location.reload(false)
+    }
     //select ai move
     const aiMove = calculateBestMove()
 
@@ -53,7 +54,21 @@ function Game() {
     safeGameMutate((game) => {
       game.move(aiMove)
     })
-    setInCheckAlert('bordered')
+    // onCheck?
+    game.in_check() ? setInCheckAlert('onCheck') : setInCheckAlert('bordered')
+    // 1. Draw
+    if (game.in_draw() || possibleMove.length === 0) {
+      alert('Draw')
+    }
+    // 2. Check Mate
+    if (game.in_checkmate()) {
+      alert('Check Mate')
+    }
+    // 3. Game Over
+    if (game.game_over()) {
+      alert('Game Over')
+      window.location.reload(false)
+    }
   }
 
   //Perform an action when a piece is droped by a user
@@ -73,27 +88,6 @@ function Game() {
     if (move == null) return false
     // 2. move for ai
     setTimeout(makeRandomMove, 200)
-
-    // 3. after the ai-movement, the rest of the checks
-    setTimeout(() => {
-      game.in_check() && setInCheckAlert('onCheck')
-
-      const possibleMove = game.moves()
-      // 4. Draw
-      if (game.in_draw() || possibleMove.length === 0) {
-        alert('Draw')
-      }
-      // 5. Check Mate
-      if (game.in_checkmate()) {
-        alert('Check Mate, You Lose')
-        window.location.reload(false)
-      }
-      // 6. Game Over
-      if (game.game_over()) {
-        alert('Game Over')
-        window.location.reload(false)
-      }
-    }, 500)
 
     return true
   }
