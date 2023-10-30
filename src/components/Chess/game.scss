@@ -30,15 +30,17 @@
       .chess-btn:focus {
         background-color: #ffd700bb;
         color: #022c43;
-        border: 3px solid #022c4360;
+        border: 3px solid #104d6e60;
       }
     }
 
     .bordered {
-      border: 6px ridge #022c4360;
+      border: none;
+      
     }
     .onCheck {
       border: 6px ridge red;
+      border-radius: 5px;
     }
   }
 }

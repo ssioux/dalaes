@@ -10,7 +10,7 @@ import { calculateBestMove, initGame } from 'chess-ai'
 function Game() {
   // ai-skill (0-2)
   const [aiSkill, setAiSkill] = useState(0)
-  console.log('first', aiSkill)
+
   // inCheck Alert
   const [inCheckAlert, setInCheckAlert] = useState('bordered')
   // new Game
@@ -69,8 +69,10 @@ function Game() {
     safeGameMutate((game) => {
       game.move(aiMove)
     })
+
     // onCheck?
     game.in_check() ? setInCheckAlert('onCheck') : setInCheckAlert('bordered')
+
     // 1. Draw
     if (game.in_draw() || possibleMove.length === 0) {
       alert('Draw')
@@ -126,9 +128,19 @@ function Game() {
 
           <div className={`${inCheckAlert}`}>
             <Chessboard
+              customDropSquareStyle={{
+                boxShadow: 'inset 0 0 1px 6px rgba(255, 215, 0, 0.73)',
+              }}
+              customBoardStyle={{
+                borderRadius: '5px',
+                boxShadow: '0 5px 15px rgba(0, 0, 0, 0.5 ',
+              }}
+              customDarkSquareStyle={{ backgroundColor: '#104d6e' }}
+              // customBoardStyle={{backgroundColor: "red",borderRadius: '5px', boxShadow: '0 5px 15px rgba(0, 0, 0, 0.5 '}}
               position={game.fen()}
               onPieceDrop={onDrop}
               boardWidth={800}
+              customArrowColor={'rgb(255,170,0)'}
             />
           </div>
         </div>
