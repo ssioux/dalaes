@@ -96,6 +96,10 @@ function Game() {
     <>
       <div className="container chess-page">
         <div className="board">
+          Difficulty:
+          <button className="chess-btn">Easy</button>
+          <button className="chess-btn">Midium</button>
+          <button className="chess-btn">Hard</button>
           <div className={`${inCheckAlert}`}>
             <Chessboard
               position={game.fen()}
