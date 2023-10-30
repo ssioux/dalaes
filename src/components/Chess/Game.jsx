@@ -9,6 +9,10 @@ import { calculateBestMove, initGame } from 'chess-ai'
 import { faL } from '@fortawesome/free-solid-svg-icons'
 
 function Game() {
+
+  // ai-skill (0-2)
+  const [aiSkill, setAiSkill] = useState(0)
+  console.log("first", aiSkill)
   // inCheck Alert
   const [inCheckAlert, setInCheckAlert] = useState('bordered')
   // new Game
@@ -18,7 +22,7 @@ function Game() {
   // TODO: Pieces in danger?
 
   useEffect(() => {
-    initGame(game, 2) // From 0 - 2 ai-level
+    initGame(game, aiSkill) // From 0 - 2 ai-level
   })
 
   //Let's perform a function on the game state
@@ -97,9 +101,9 @@ function Game() {
       <div className="container chess-page">
         <div className="board">
           Difficulty:
-          <button className="chess-btn">Easy</button>
-          <button className="chess-btn">Midium</button>
-          <button className="chess-btn">Hard</button>
+          <button onClick={() => setAiSkill(0)} className="chess-btn">Easy</button>
+          <button onClick={() => setAiSkill(1)} className="chess-btn">Medium</button>
+          <button onClick={() => setAiSkill(2)} className="chess-btn">Hard</button>
           <div className={`${inCheckAlert}`}>
             <Chessboard
               position={game.fen()}
