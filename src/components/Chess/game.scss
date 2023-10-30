@@ -11,13 +11,10 @@
     justify-content: center;
 
     .bordered {
-      border: 6px ridge rgb(235, 241, 145);
+      border: 6px ridge #022c4360;
     }
-  }
-  .onCheck {
-    border: 6px solid red;
-  }
-  .nonCheck {
-    border: none;
+    .onCheck {
+      border: 6px ridge red;
+    }
   }
 }
