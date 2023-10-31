@@ -61,12 +61,10 @@ function Game() {
     // 2. Check Mate
     if (game.in_checkmate()) {
       alert('Check Mate')
-      window.location.reload(false)
     }
     // 3. Game Over
     if (game.game_over()) {
       alert('Game Over')
-      window.location.reload(false)
     }
     //select ai move
     const aiMove = calculateBestMove()
