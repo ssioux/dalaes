@@ -7,7 +7,13 @@ import { Chessboard } from 'react-chessboard'
 import { Chess } from 'chess.js'
 import { calculateBestMove, initGame } from 'chess-ai'
 
+import { useMediaQuery } from 'react-responsive'
+
 function Game() {
+
+  const isPhone = useMediaQuery({
+    query: '(max-width: 1200px)'
+  })
   // ai-skill (0-2)
   const [aiSkill, setAiSkill] = useState(0)
 
@@ -136,10 +142,9 @@ function Game() {
                 boxShadow: '0 5px 15px rgba(0, 0, 0, 0.5 ',
               }}
               customDarkSquareStyle={{ backgroundColor: '#104d6e' }}
-              // customBoardStyle={{backgroundColor: "red",borderRadius: '5px', boxShadow: '0 5px 15px rgba(0, 0, 0, 0.5 '}}
               position={game.fen()}
               onPieceDrop={onDrop}
-              boardWidth={800}
+              boardWidth={isPhone ? 333 : 800}
               customArrowColor={'rgb(255,170,0)'}
             />
           </div>
