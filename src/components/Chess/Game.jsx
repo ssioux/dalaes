@@ -120,14 +120,14 @@ function Game() {
       <div className="container chess-page">
         <div className="board">
           <div className="btn-group">
-            {isPhone ? <p></p> : <p>Difficulty:</p>}
-            <button onClick={easy} className="chess-btn">
+            {isPhone ? <p>LvL</p> : <p>Difficulty:</p>}
+            <button onClick={easy} className={isPhone ? "chess-btn-phone" : "chess-btn"}>
               Easy
             </button>
-            <button onClick={medium} className="chess-btn">
+            <button onClick={medium} className={isPhone ? "chess-btn-phone" : "chess-btn"}>
               Medium
             </button>
-            <button onClick={hard} className="chess-btn">
+            <button onClick={hard} className={isPhone ? "chess-btn-phone" : "chess-btn"}>
               Hard
             </button>
           </div>
