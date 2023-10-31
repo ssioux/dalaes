@@ -1,18 +1,16 @@
 import './game.scss'
-
 import { useEffect, useState } from 'react'
 import Loader from 'react-loaders'
-
 import { Chessboard } from 'react-chessboard'
 import { Chess } from 'chess.js'
 import { calculateBestMove, initGame } from 'chess-ai'
-
 import { useMediaQuery } from 'react-responsive'
 
 function Game() {
-
+  
+  // mQuery for chess
   const isPhone = useMediaQuery({
-    query: '(max-width: 1200px)'
+    query: '(max-width: 1200px)',
   })
   // ai-skill (0-2)
   const [aiSkill, setAiSkill] = useState(0)
@@ -22,6 +20,7 @@ function Game() {
   // new Game
   const chess = new Chess()
   const [game, setGame] = useState(chess)
+  console.log("second", game)
 
   useEffect(() => {
     initGame(game, aiSkill) // From 0 - 2 ai-level
@@ -55,7 +54,7 @@ function Game() {
   function makeRandomMove() {
     const possibleMove = game.moves()
     // 1. Draw
-    if (game.in_draw() || possibleMove.length === 0) {
+    if (game.in_draw() || possibleMove.length === 0 || game.in_stalemate()) {
       alert('Draw')
     }
     // 2. Check Mate
@@ -119,13 +118,22 @@ function Game() {
         <div className="board">
           <div className="btn-group">
             {isPhone ? <p>LvL</p> : <p>Difficulty:</p>}
-            <button onClick={easy} className={isPhone ? "chess-btn-phone" : "chess-btn"}>
+            <button
+              onClick={easy}
+              className={isPhone ? 'chess-btn-phone' : 'chess-btn'}
+            >
               Easy
             </button>
-            <button onClick={medium} className={isPhone ? "chess-btn-phone" : "chess-btn"}>
+            <button
+              onClick={medium}
+              className={isPhone ? 'chess-btn-phone' : 'chess-btn'}
+            >
               Medium
             </button>
-            <button onClick={hard} className={isPhone ? "chess-btn-phone" : "chess-btn"}>
+            <button
+              onClick={hard}
+              className={isPhone ? 'chess-btn-phone' : 'chess-btn'}
+            >
               Hard
             </button>
           </div>
