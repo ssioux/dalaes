@@ -119,8 +119,8 @@ function Game() {
     <>
       <div className="container chess-page">
         <div className="board">
-          <dir className="btn-group">
-            Difficulty:
+          <div className="btn-group">
+            {isPhone ? <p></p> : <p>Difficulty:</p>}
             <button onClick={easy} className="chess-btn">
               Easy
             </button>
@@ -130,7 +130,7 @@ function Game() {
             <button onClick={hard} className="chess-btn">
               Hard
             </button>
-          </dir>
+          </div>
 
           <div className={`${inCheckAlert}`}>
             <Chessboard
