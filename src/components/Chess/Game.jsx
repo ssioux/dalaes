@@ -7,7 +7,6 @@ import { calculateBestMove, initGame } from 'chess-ai'
 import { useMediaQuery } from 'react-responsive'
 
 function Game() {
-  
   // mQuery for chess
   const isPhone = useMediaQuery({
     query: '(max-width: 1200px)',
@@ -20,10 +19,11 @@ function Game() {
   // new Game
   const chess = new Chess()
   const [game, setGame] = useState(chess)
-  console.log("second", game)
+  console.log('second', game)
 
   useEffect(() => {
     initGame(game, aiSkill) // From 0 - 2 ai-level
+
   }, [game, aiSkill])
 
   // Dificulty
@@ -40,6 +40,12 @@ function Game() {
   const hard = () => {
     setAiSkill(2)
     game.reset()
+  }
+  const reset = () => {
+    game.reset()
+  }
+  const undo = () => {
+    game.undo()
   }
   //Let's perform a function on the game state
 
@@ -75,20 +81,6 @@ function Game() {
 
     // onCheck?
     game.in_check() ? setInCheckAlert('onCheck') : setInCheckAlert('bordered')
-
-    // 1. Draw
-    if (game.in_draw() || possibleMove.length === 0) {
-      alert('Draw')
-    }
-    // 2. Check Mate
-    if (game.in_checkmate()) {
-      alert('Check Mate')
-    }
-    // 3. Game Over
-    if (game.game_over()) {
-      alert('Game Over')
-      window.location.reload(false)
-    }
   }
 
   //Perform an action when a piece is droped by a user
@@ -153,6 +145,20 @@ function Game() {
               boardWidth={isPhone ? 333 : 800}
               customArrowColor={'rgb(255,170,0)'}
             />
+          </div>
+          <div>
+            <button
+              onClick={reset}
+              className={isPhone ? 'chess-btn-phone' : 'chess-btn'}
+            >
+              Reset
+            </button>
+            <button
+              onClick={undo}
+              className={isPhone ? 'chess-btn-phone' : 'chess-btn'}
+            >
+              Undo
+            </button>
           </div>
         </div>
       </div>
