@@ -13,17 +13,16 @@ function Game() {
   })
   // ai-skill (0-2)
   const [aiSkill, setAiSkill] = useState(0)
+  console.log('🚀 ~ file: Game.jsx:16 ~ Game ~ aiSkill:', aiSkill)
 
   // inCheck Alert
   const [inCheckAlert, setInCheckAlert] = useState('bordered')
   // new Game
   const chess = new Chess()
   const [game, setGame] = useState(chess)
-  console.log('second', game)
 
   useEffect(() => {
     initGame(game, aiSkill) // From 0 - 2 ai-level
-
   }, [game, aiSkill])
 
   // Dificulty
@@ -41,12 +40,15 @@ function Game() {
     setAiSkill(2)
     game.reset()
   }
-  const reset = () => {
-    game.reset()
-  }
-  const undo = () => {
-    game.undo()
-  }
+  // const reset = () => {
+
+  //   game.reset()
+  // }
+  // const undo = () => {
+
+  //   game.undo()
+  // }
+  
   //Let's perform a function on the game state
 
   function safeGameMutate(modify) {
@@ -60,12 +62,18 @@ function Game() {
   function makeRandomMove() {
     const possibleMove = game.moves()
     // 1. Draw
-    if (game.in_draw() || possibleMove.length === 0 || game.in_stalemate()) {
+    if (game.in_draw() || game.in_stalemate()) {
       alert('Draw')
     }
     // 2. Check Mate
-    if (game.in_checkmate()) {
+    if (game.in_checkmate() || possibleMove.length === 0) {
       alert('Check Mate')
+    }
+
+    // 2.1
+    if (!game.in_check() && possibleMove.length === 0) {
+      alert('Draw')
+      game.game_over()
     }
     // 3. Game Over
     if (game.game_over()) {
@@ -146,7 +154,7 @@ function Game() {
               customArrowColor={'rgb(255,170,0)'}
             />
           </div>
-          <div>
+          {/* <div>
             <button
               onClick={reset}
               className={isPhone ? 'chess-btn-phone' : 'chess-btn'}
@@ -159,7 +167,7 @@ function Game() {
             >
               Undo
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
       <Loader type="pacman" />
