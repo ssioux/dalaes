@@ -170,7 +170,7 @@ function Game() {
           </div> */}
         </div>
       </div>
-      <Loader type="pacman" />
+      <Loader type="cube-transition" />
     </>
   )
 }

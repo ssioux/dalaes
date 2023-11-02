@@ -5,8 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngular, faCss3, faGitAlt, faHtml5, faJsSquare, faReact } from '@fortawesome/free-brands-svg-icons'
 import Loader from 'react-loaders'
 
+
 const About = () => {
 
+  console.log("🚀 ~ file: About.jsx:7 ~ Loader:", Loader)
   const [letterClass, setLetterClass] = useState('text-animate')
 
   useEffect(() => {
@@ -68,7 +70,7 @@ const About = () => {
         </div>
       </div>
 
-      <Loader type="pacman"/>
+      <Loader type="cube-transition"/>
       
     </>
   )
