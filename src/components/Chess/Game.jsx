@@ -147,11 +147,11 @@ function Game() {
                 borderRadius: '5px',
                 boxShadow: '0 5px 15px rgba(0, 0, 0, 0.5 ',
               }}
-              customDarkSquareStyle={{ backgroundColor: '#104d6e' }}
+              customDarkSquareStyle={{ backgroundColor: '#B0290C' }}
+              customLightSquareStyle={{ backgroundColor: '#fff' }}
               position={game.fen()}
               onPieceDrop={onDrop}
               boardWidth={isPhone ? 333 : 800}
-              customArrowColor={'rgb(255,170,0)'}
             />
           </div>
           {/* <div>
