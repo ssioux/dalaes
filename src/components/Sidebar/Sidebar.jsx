@@ -76,7 +76,7 @@ const Sidebar = () => {
         <FontAwesomeIcon
           onClick={() => setShowNav(false)}
           icon={faClose}
-          color="#ffd700"
+          color="#D13636"
           size="3x"
           className="close-icon"
         />
