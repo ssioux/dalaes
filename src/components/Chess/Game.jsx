@@ -13,7 +13,7 @@ function Game() {
   })
   // ai-skill (0-2)
   const [aiSkill, setAiSkill] = useState(0)
-  console.log('🚀 ~ file: Game.jsx:16 ~ Game ~ aiSkill:', aiSkill)
+  console.log('🚀aiSkill:', aiSkill)
 
   // inCheck Alert
   const [inCheckAlert, setInCheckAlert] = useState('bordered')
@@ -38,17 +38,23 @@ function Game() {
 
   const hard = () => {
     setAiSkill(2)
+
     game.reset()
   }
-  // const reset = () => {
+  const reset = () => {
+    setAiSkill(aiSkill)
+    game.reset()
+    onDrop()
+    
+  }
+  const undo = () => {
+    setAiSkill(aiSkill)
+    game.undo()
+    game.undo()
+    onDrop()
+    
+  }
 
-  //   game.reset()
-  // }
-  // const undo = () => {
-
-  //   game.undo()
-  // }
-  
   //Let's perform a function on the game state
 
   function safeGameMutate(modify) {
@@ -147,14 +153,14 @@ function Game() {
                 borderRadius: '5px',
                 boxShadow: '0 5px 15px rgba(0, 0, 0, 0.5 ',
               }}
-              customDarkSquareStyle={{ backgroundColor: '#B0290C' }}
+              customDarkSquareStyle={{ backgroundColor: '#961C1C' }}
               customLightSquareStyle={{ backgroundColor: '#fff' }}
               position={game.fen()}
               onPieceDrop={onDrop}
               boardWidth={isPhone ? 333 : 800}
             />
           </div>
-          {/* <div>
+          <div>
             <button
               onClick={reset}
               className={isPhone ? 'chess-btn-phone' : 'chess-btn'}
@@ -167,7 +173,7 @@ function Game() {
             >
               Undo
             </button>
-          </div> */}
+          </div>
         </div>
       </div>
       <Loader type="cube-transition" />
