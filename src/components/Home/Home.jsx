@@ -1,5 +1,5 @@
 import './home.scss'
-import LogoTitle from '../../assets/images/Logo-d.png'
+import LogoTitle from '../../assets/images/David-rem.png'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import AnimatedLetters from '../AnimatedLetters/AnimatedLetters'
@@ -22,13 +22,17 @@ const Home = () => {
     <div className="container home-page">
       <div className="text-zone">
         <h1>
-          <span className={letterClass}>H</span>
-          <span className={`${letterClass} _12`}>i,</span>
-
+          <AnimatedLetters
+            letterClass={letterClass}
+            strArray={'Hi'.split('')}
+            idx={15}
+          />
           <br />
-          <span className={`${letterClass} _13`}>I</span>
-          <span className={`${letterClass} _14`}>'m</span>
-
+          <AnimatedLetters
+            letterClass={letterClass}
+            strArray={`i'm`.split('')}
+            idx={15}
+          />
           <img src={LogoTitle} alt="developer" />
 
           {/* Animation for 'sioux' */}
@@ -50,10 +54,8 @@ const Home = () => {
           CONTACT ME
         </Link>
       </div>
-    
-          <Logo />
 
-    
+      <Logo />
     </div>
   )
 }
