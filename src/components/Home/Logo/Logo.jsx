@@ -1,7 +1,7 @@
 // scss
 import './logo.scss'
 // D
-import LogoSioux from '../../../assets/images/Logo-d.png'
+import LogoSioux from '../../../assets/images/David-logo.png'
 
 const Logo = () => {
   return (
