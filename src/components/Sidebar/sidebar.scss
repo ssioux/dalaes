@@ -14,12 +14,7 @@
     img {
       display: block;
       margin: 8px auto;
-      width: 24px;
-      height: auto;
-
-      &.sub-logo {
-        width: 50px;
-      }
+      width: 44px;
     }
   }
 
@@ -46,7 +41,7 @@
       }
 
       &:hover {
-        color: rgb(209, 54, 54) ;
+        color: rgb(209, 54, 54);
 
         svg {
           opacity: 0;
@@ -103,7 +98,7 @@
 
     a.active {
       svg {
-        color: rgb(209, 54, 54) ;
+        color: rgb(209, 54, 54);
       }
     }
   }
@@ -126,7 +121,7 @@
         line-height: 16px;
 
         &:hover svg {
-          color: rgb(209, 54, 54) ;
+          color: rgb(209, 54, 54);
         }
       }
     }
@@ -140,10 +135,24 @@
 
 @media screen and (max-width: 1200px) {
   .nav-bar {
+    display: flex;
     background: transparent;
     position: initial;
     height: auto;
+    justify-content: left;
+    width: 100%;
     min-height: auto;
+    position: sticky;
+    background-color: #181818;
+    box-shadow: rgb(209, 54, 54) 0px 2px 4px 0px,
+      rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+    .logo {
+      margin-left: 11px;
+      img {
+        width: 34px;
+      }
+    }
 
     ul,
     nav {

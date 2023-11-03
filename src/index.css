@@ -8,9 +8,9 @@ body {
   color: #444;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background: #022c43; */
-  /* rgb(209, 54, 54) */
-  /* #181818 */
+  /* background: #022c43; -> blue color*/
+  /* rgb(209, 54, 54)  ---  #D13636  -->  Red color*/
+  /* #181818 -> black -grey color */
   background: #333;
   overflow: hidden;
   display: block;
