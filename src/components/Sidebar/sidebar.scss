@@ -146,8 +146,8 @@
     justify-content: left;
     width: 100%;
     min-height: auto;
+    background-color: #fff;
     position: sticky;
-    background-color: #181818;
     box-shadow: rgb(209, 54, 54) 0px 2px 4px 0px,
       rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 
@@ -191,6 +191,10 @@
       }
       &.mobile-show {
         display: block;
+        background-color: #fff;
+        height: 300px;
+        box-shadow: rgb(209, 54, 54) 0px 2px 4px 0px,
+          rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
       }
     }
 

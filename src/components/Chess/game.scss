@@ -19,10 +19,10 @@
 
       .chess-btn {
         cursor: pointer;
-        background-color: #022c4360;
+        background-color: #961C1C;
         font-size: 1.7rem;
         font-family: 'Times New Roman', Times, serif;
-        color: rgb(209, 54, 54);
+        color: #fff;
         width: 100px;
         border-radius: 5px;
         margin: 0px 15px 15px 15px;
@@ -30,25 +30,28 @@
       }
       .chess-btn-phone {
         cursor: pointer;
-        background-color: #022c4360;
+        background-color: #961C1C;
         font-size: 1.7rem;
         font-family: 'Times New Roman', Times, serif;
-        color: rgb(209, 54, 54);
+        color: #fff;
         width: 80px;
         border-radius: 5px;
         margin: 0px;
         padding: 0px;
         height: 40px;
-        border: 3px ridge #022c4360;
+       
       }
 
       .chess-btn:hover {
-        border: 3px ridge #ffd70060;
+        color:#961C1C;
+        background-color: #fff;
       }
       .chess-btn:focus {
-        background-color: #ffd700bb;
-        color: #022c43;
-        border: 3px solid #104d6e60;
+        background-color:#fff;
+       
+        color:#961C1C;
+
+        border: 3px solid #000;
       }
       .chess-btn-phone:hover {
         border: 3px ridge #ffd70060;

@@ -160,7 +160,7 @@ function Game() {
               boardWidth={isPhone ? 333 : 800}
             />
           </div>
-          <div>
+          <div className="btn-group">
             <button
               onClick={reset}
               className={isPhone ? 'chess-btn-phone' : 'chess-btn'}
