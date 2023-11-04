@@ -74,10 +74,13 @@
 }
 
 @media screen and (max-width: 1200px) {
+  .chess-page {
+   margin-top: 70px;
   .board {
     flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
   }
 }

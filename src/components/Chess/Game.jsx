@@ -123,7 +123,6 @@ function Game() {
       <div className="container chess-page">
         <div className="board">
           <div className="btn-group">
-            {isPhone ? <p>LvL</p> : <p>Difficulty:</p>}
             <button
               onClick={easy}
               className={isPhone ? 'chess-btn-phone' : 'chess-btn'}
