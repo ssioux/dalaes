@@ -13,7 +13,10 @@ function Game() {
   })
   // ai-skill (0-2)
   const [aiSkill, setAiSkill] = useState(0)
-  console.log('🚀aiSkill:', aiSkill)
+  const [easyBtn, setEasyBtn] = useState("chess-btn")
+  const [mediumBtn, setMediumBtn] = useState("chess-btn")
+  const [hardBtn, setHardBtn] = useState("chess-btn")
+
 
   // inCheck Alert
   const [inCheckAlert, setInCheckAlert] = useState('bordered')
@@ -27,21 +30,34 @@ function Game() {
 
   // Dificulty
   const easy = () => {
+    setEasyBtn("activeBtn")
+    setMediumBtn("chess-btn")
+    setHardBtn("chess-btn")
+
     setAiSkill(0)
     game.reset()
   }
 
   const medium = () => {
+    setEasyBtn("chess-btn")
+    setMediumBtn("activeBtn")
+    setHardBtn("chess-btn")
     setAiSkill(1)
     game.reset()
   }
 
   const hard = () => {
+    setEasyBtn("chess-btn")
+    setMediumBtn("chess-btn")
+    setHardBtn("activeBtn")
     setAiSkill(2)
 
     game.reset()
   }
   const reset = () => {
+    setEasyBtn("activeBtn")
+    setMediumBtn("chess-btn")
+    setHardBtn("chess-btn")
     setAiSkill(aiSkill)
     game.reset()
     onDrop()
@@ -125,19 +141,19 @@ function Game() {
           <div className="btn-group">
             <button
               onClick={easy}
-              className={isPhone ? 'chess-btn-phone' : 'chess-btn'}
+              className={isPhone && 'chess-btn-phone' || easyBtn}
             >
               Easy
             </button>
             <button
               onClick={medium}
-              className={isPhone ? 'chess-btn-phone' : 'chess-btn'}
+              className={isPhone && 'chess-btn-phone' || mediumBtn}
             >
               Medium
             </button>
             <button
               onClick={hard}
-              className={isPhone ? 'chess-btn-phone' : 'chess-btn'}
+              className={isPhone && 'chess-btn-phone' || hardBtn}
             >
               Hard
             </button>
