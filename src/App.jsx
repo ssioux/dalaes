@@ -9,6 +9,7 @@ import Contact from './components/Contact/Contact'
 import MainDashBoard from './components/Dashboard/MainDashBoard'
 import Portfolio from './components/Portfolio/Portfolio'
 import Chess from './components/Chess/Game'
+import Exp from "./components/Experience/Exp"
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/experience" element={<Exp />} />
           <Route path="/dashboard" element={<MainDashBoard />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/chess" element={<Chess />} />

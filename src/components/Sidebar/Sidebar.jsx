@@ -4,9 +4,10 @@ import LogoDalaes from '../../assets/images/David-logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faBars,
-  faChess,
+  faChessKnight,
   faClose,
   faEnvelope,
+  faHandshake,
   faHome,
   faSuitcase,
   faUser,
@@ -47,6 +48,16 @@ const Sidebar = () => {
           onClick={() => setShowNav(false)}
           exact="true"
           activeclassname="active"
+          className="experience-link"
+          to="/experience"
+        >
+          <FontAwesomeIcon icon={faHandshake} color="#4d4d4e" />
+        </NavLink>
+
+        <NavLink
+          onClick={() => setShowNav(false)}
+          exact="true"
+          activeclassname="active"
           className="portfolio-link"
           to="/portfolio"
         >
@@ -70,7 +81,7 @@ const Sidebar = () => {
           className="chess-link"
           to="/chess"
         >
-          <FontAwesomeIcon icon={faChess} color="#4d4d4e" />
+          <FontAwesomeIcon icon={faChessKnight} color="#4d4d4e" />
         </NavLink>
 
         <FontAwesomeIcon
