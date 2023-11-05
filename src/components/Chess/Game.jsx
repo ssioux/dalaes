@@ -11,12 +11,13 @@ function Game() {
   const isPhone = useMediaQuery({
     query: '(max-width: 1200px)',
   })
+  const classBtn = isPhone ? 'chess-btn-phone' : 'chess-btn'
   // ai-skill (0-2)
   const [aiSkill, setAiSkill] = useState(0)
-  const [easyBtn, setEasyBtn] = useState("chess-btn")
-  const [mediumBtn, setMediumBtn] = useState("chess-btn")
-  const [hardBtn, setHardBtn] = useState("chess-btn")
-
+  const [easyBtn, setEasyBtn] = useState(classBtn)
+  console.log("🚀 ~ file: Game.jsx:18 ~ Game ~ easyBtn:", easyBtn)
+  const [mediumBtn, setMediumBtn] = useState(classBtn)
+  const [hardBtn, setHardBtn] = useState(classBtn)
 
   // inCheck Alert
   const [inCheckAlert, setInCheckAlert] = useState('bordered')
@@ -30,45 +31,60 @@ function Game() {
 
   // Dificulty
   const easy = () => {
-    setEasyBtn("activeBtn")
-    setMediumBtn("chess-btn")
-    setHardBtn("chess-btn")
+    if (isPhone) {
+      setEasyBtn('activeBtn-phone')
+      setMediumBtn('chess-btn-phone')
+      setHardBtn('chess-btn-phone')
+    } else {
+      setEasyBtn('activeBtn')
+      setMediumBtn('chess-btn')
+      setHardBtn('chess-btn')
+    }
 
     setAiSkill(0)
     game.reset()
   }
 
   const medium = () => {
-    setEasyBtn("chess-btn")
-    setMediumBtn("activeBtn")
-    setHardBtn("chess-btn")
+    if (isPhone) {
+      setEasyBtn('chess-btn-phone')
+      setMediumBtn('activeBtn-phone')
+      setHardBtn('chess-btn-phone')
+    } else {
+      setEasyBtn('chess-btn')
+      setMediumBtn('activeBtn')
+      setHardBtn('chess-btn')
+    }
+
     setAiSkill(1)
     game.reset()
   }
 
   const hard = () => {
-    setEasyBtn("chess-btn")
-    setMediumBtn("chess-btn")
-    setHardBtn("activeBtn")
+    if (isPhone) {
+      setEasyBtn('chess-btn-phone')
+      setMediumBtn('chess-btn-phone')
+      setHardBtn('activeBtn-phone')
+    } else {
+      setEasyBtn('chess-btn')
+      setMediumBtn('chess-btn')
+      setHardBtn('activeBtn')
+    }
+
     setAiSkill(2)
 
     game.reset()
   }
   const reset = () => {
-    setEasyBtn("activeBtn")
-    setMediumBtn("chess-btn")
-    setHardBtn("chess-btn")
     setAiSkill(aiSkill)
     game.reset()
     onDrop()
-    
   }
   const undo = () => {
     setAiSkill(aiSkill)
     game.undo()
     game.undo()
     onDrop()
-    
   }
 
   //Let's perform a function on the game state
@@ -139,22 +155,13 @@ function Game() {
       <div className="container chess-page">
         <div className="board">
           <div className="btn-group">
-            <button
-              onClick={easy}
-              className={isPhone && 'chess-btn-phone' || easyBtn}
-            >
+            <button onClick={easy} className={easyBtn}>
               Easy
             </button>
-            <button
-              onClick={medium}
-              className={isPhone && 'chess-btn-phone' || mediumBtn}
-            >
+            <button onClick={medium} className={mediumBtn}>
               Medium
             </button>
-            <button
-              onClick={hard}
-              className={isPhone && 'chess-btn-phone' || hardBtn}
-            >
+            <button onClick={hard} className={hardBtn}>
               Hard
             </button>
           </div>
@@ -178,13 +185,13 @@ function Game() {
           <div className="btn-group">
             <button
               onClick={reset}
-              className={isPhone ? 'chess-btn-phone' : 'chess-btn'}
+              className={isPhone ? 'chess-btn-bottom' : 'chess-btn'}
             >
               Reset
             </button>
             <button
               onClick={undo}
-              className={isPhone ? 'chess-btn-phone' : 'chess-btn'}
+              className={isPhone ? 'chess-btn-bottom' : 'chess-btn'}
             >
               Undo
             </button>

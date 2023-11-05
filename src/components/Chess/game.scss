@@ -7,6 +7,8 @@
 
   .board {
     .btn-group {
+      align-items: center;
+      justify-content: center;
       display: flex;
 
       p {
@@ -36,10 +38,23 @@
         color: #fff;
         width: 80px;
         border-radius: 5px;
-        margin: 0px;
+        margin: 3px;
         padding: 0px;
-        height: 40px;
+        height: 30px;
       }
+      .chess-btn-bottom {
+        cursor: pointer;
+        background-color: #961c1c;
+        font-size: 1.7rem;
+        font-family: 'Times New Roman', Times, serif;
+        color: #fff;
+        width: 80px;
+        border-radius: 5px;
+        margin: 3px;
+        padding: 0px;
+        height: 30px;
+      }
+
       .activeBtn {
         cursor: pointer;
         background-color: #fff;
@@ -51,29 +66,34 @@
         margin: 0px 15px 15px 15px;
         border: 3px ridge #961c1c;
       }
+      .activeBtn-phone {
+        cursor: pointer;
+        background-color: #fff;
+        font-size: 1.7rem;
+        font-family: 'Times New Roman', Times, serif;
+        color: #961c1c;
+        width: 80px;
+        border-radius: 5px;
+        margin: 3px;
+        padding: 0px;
+        height: 30px;
+        border: 3px ridge #961c1c;
+      }
 
       .activeBtn:hover {
         color: #961c1c;
         background-color: #fff;
       }
-      
 
       .chess-btn:hover {
         color: #961c1c;
         background-color: #fff;
       }
-      .chess-btn:focus {
+
+      .chess-btn-phone:focus {
         background-color: #fff;
         color: #961c1c;
-        border: 3px solid #000;
-      }
-      .chess-btn-phone:hover {
-        border: 3px ridge #ffd70060;
-      }
-      .chess-btn-phone:focus {
-        background-color: #ffd700bb;
-        color: #022c43;
-        border: 3px solid #104d6e60;
+        border: 3px solid #961c1c;
       }
     }
 
