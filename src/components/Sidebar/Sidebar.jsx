@@ -44,7 +44,7 @@ const Sidebar = () => {
           <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
         </NavLink>
 
-        <NavLink
+        {/* <NavLink
           onClick={() => setShowNav(false)}
           exact="true"
           activeclassname="active"
@@ -52,7 +52,7 @@ const Sidebar = () => {
           to="/experience"
         >
           <FontAwesomeIcon icon={faHandshake} color="#4d4d4e" />
-        </NavLink>
+        </NavLink> */}
 
         <NavLink
           onClick={() => setShowNav(false)}
