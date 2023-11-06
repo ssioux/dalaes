@@ -6,6 +6,7 @@
     transform: translateY(-50%);
     width: 40%;
     max-height: 90%;
+
     img {
       width: 36px;
     }
@@ -91,6 +92,7 @@
   }
 
   .home-page {
+    width: auto;
     margin-left: 9px;
     .text-zone {
       position: initial;
@@ -117,6 +119,7 @@
     }
 
     .logo-container {
+      display:none;
       position: relative;
       width: 100px;
       height: auto;
@@ -125,8 +128,6 @@
       box-sizing: border-box;
       margin: auto;
       left: 0;
-
-  
     }
   }
 }
