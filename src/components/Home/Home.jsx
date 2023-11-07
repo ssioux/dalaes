@@ -11,7 +11,7 @@ const Home = () => {
   useEffect(() => {
     const letterMouseMovement = setTimeout(() => {
       setLetterClass('text-animate-hover')
-    }, 4000)
+    }, 3000)
 
     return () => {
       clearTimeout(letterMouseMovement)

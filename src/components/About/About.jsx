@@ -8,13 +8,12 @@ import Loader from 'react-loaders'
 
 const About = () => {
 
-  console.log("🚀 ~ file: About.jsx:7 ~ Loader:", Loader)
   const [letterClass, setLetterClass] = useState('text-animate')
 
   useEffect(() => {
     const letterMouseMovement = setTimeout(() => {
       setLetterClass('text-animate-hover')
-    }, 3000)
+    }, 4000)
 
     return () => {
       clearTimeout(letterMouseMovement)

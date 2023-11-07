@@ -7,7 +7,7 @@ import {
   faChessKnight,
   faClose,
   faEnvelope,
-  faHandshake,
+  // faHandshake,
   faHome,
   faSuitcase,
   faUser,
