@@ -29,7 +29,7 @@ const Home = () => {
           <br />
           <AnimatedLetters
             letterClass={letterClass}
-            strArray={`i'm`.split('')}
+            strArray={`I'm`.split('')}
             idx={15}
           />
           <img src={LogoTitle} alt="developer" />
