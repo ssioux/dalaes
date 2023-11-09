@@ -8,8 +8,6 @@ import { db } from '../../firebase'
 const Portfolio = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
   const [portfolio, setPortfolio] = useState([])
-  console.log("🚀 portfolio:", portfolio)
-  
 
   useEffect(() => {
     const letterMouseMovement = setTimeout(() => {
@@ -28,8 +26,6 @@ const Portfolio = () => {
   const getPortfolio = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, 'portfolio'))
-      console.log("🚀querySnapshot:", querySnapshot)
-    
       setPortfolio(querySnapshot.docs.map((doc) => doc.data()))
     } catch (error) {
       console.log(error)
