@@ -8,25 +8,24 @@ import { db } from '../../firebase'
 const Portfolio = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
   const [portfolio, setPortfolio] = useState([])
+  console.log("🚀 ~ file: Portfolio.jsx:11 ~ Portfolio ~ portfolio:", portfolio)
+  
 
   useEffect(() => {
     const letterMouseMovement = setTimeout(() => {
       setLetterClass('text-animate-hover')
     }, 3000)
-
+    getPortfolio()
     return () => {
       clearTimeout(letterMouseMovement)
     }
   })
-
-  useEffect(() => {
-    getPortfolio()
-  }, [])
-
+ 
   const getPortfolio = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, 'portfolio'))
-      setPortfolio(querySnapshot.docs.map((doc) => doc.data()))
+     
+      setPortfolio(querySnapshot.docs.map((doc) => ({...doc.data(), id:doc.id})))
     } catch (error) {
       console.log(error)
     }
