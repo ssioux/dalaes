@@ -18,42 +18,25 @@ const DashBoardForm = () => {
     const image = form.current[4]?.files[0]
 
     // * upload image to firebaseStorage
-    const storageRef = ref(storage, `portfolio/${image.name}`) // 1- storage, 2-image-name-URL
-    // 1 {the ref}, 2 {file it-self}
-    uploadBytes(storageRef, image).then(
-      (snapshot) => {
-        getDownloadURL(snapshot.ref).then(
-          (downloadUrl) => {
-            savePortfolio({
-              name,
-              description,
-              webUrl,
-              codeUrl,
-              image: downloadUrl,
-            })
-          },
-          () => {
-            savePortfolio({
-              name,
-              description,
-              webUrl,
-              codeUrl,
-              image: null,
-            })
-          }
-        )
-      },
-      () => {
-        savePortfolio({
-          name,
-          description,
-          webUrl,
-          codeUrl,
-          image: null,
-        })
-      }
-    )
+    try {
+      const storageRef = ref(storage, `portfolio/${image.name}`) // 1- storage, 2-image-name-URL
+      // 1 {the ref}, 2 {file it-self}
 
+      const snapShot = await uploadBytes(storageRef, image)
+
+      const downloadUrl = await getDownloadURL(snapShot.ref)
+      savePortfolio({
+        name,
+        description,
+        webUrl,
+        codeUrl,
+        image: downloadUrl,
+      })
+    } catch (error) {
+      console.log(error)
+    }
+
+   
     const savePortfolio = async (portfolio) => {
       try {
         await addDoc(collection(db, 'portfolio'), portfolio) // 1-database, 2-collection_name, 3-portfolio itself to add
