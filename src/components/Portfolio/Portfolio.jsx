@@ -8,7 +8,7 @@ import { db } from '../../firebase'
 const Portfolio = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
   const [portfolio, setPortfolio] = useState([])
-  console.log("🚀 ~ file: Portfolio.jsx:11 ~ Portfolio ~ portfolio:", portfolio)
+  console.log("🚀 ~ Portfolio ~ ", portfolio)
   
 
   useEffect(() => {
@@ -26,6 +26,7 @@ const Portfolio = () => {
       const querySnapshot = await getDocs(collection(db, 'portfolio'))
      
       setPortfolio(querySnapshot.docs.map((doc) => ({...doc.data(), id:doc.id})))
+      
     } catch (error) {
       console.log(error)
     }

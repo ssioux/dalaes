@@ -17,8 +17,30 @@ body {
 }
 
 .dashboard {
+  display: flex;
+  border: 2px solid red;
+  width: 80%;
+  
   margin-top: 200px;
   margin-left: 200px;
+
+}
+
+.dashboard-form {
+  border: 2px solid blue;
+  height: 100%;
+}
+.dashboard-list {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid green;
+  width: 200px;
+
+}
+.dashboard-list h3 {
+  color: #fff;
+
+
 }
 
 .error-page {

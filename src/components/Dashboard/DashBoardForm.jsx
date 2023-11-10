@@ -1,12 +1,17 @@
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { auth, storage, db } from '../../firebase'
 
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
-import { addDoc } from 'firebase/firestore'
+import { addDoc, getDocs } from 'firebase/firestore'
 import { collection } from 'firebase/firestore'
-
+import DashboardList from './DashboardList'
+// import { useNavigate } from 'react-router-dom'
+// TODO: setIsFecthing Data
 const DashBoardForm = () => {
+  // const navigate = useNavigate()
   const form = useRef()
+  const [portfolioList, setportfolioList] = useState([])
+
 
   const submitPortfolio = async (e) => {
     e.preventDefault()
@@ -42,28 +47,51 @@ const DashBoardForm = () => {
     }
   }
 
+  useEffect(() => {
+    getData()
+  }, [])
+
+  const getData = async () => {
+    try {
+      const portfolioData = await getDocs(collection(db, 'portfolio'))
+
+      setportfolioList(
+        portfolioData.docs.map((eachProject) => ({
+          ...eachProject.data(),
+          id: eachProject.id,
+        }))
+      )
+    } catch (error) {
+      console.log(error)
+      // navigate("/error")
+    }
+  }
+
   return (
     <div className="dashboard">
-      <form ref={form} onSubmit={submitPortfolio}>
-        <p>
-          <input type="text" placeholder="Name" />
-        </p>
-        <p>
-          <textarea placeholder="Description" />
-        </p>
-        <p>
-          <input type="text" placeholder="Web-Url" />
-        </p>
-        <p>
-          <input type="text" placeholder="Code-Url" />
-        </p>
+      <div className="dashboard-form">
+        <form ref={form} onSubmit={submitPortfolio}>
+          <p>
+            <input type="text" placeholder="Name" />
+          </p>
+          <p>
+            <textarea placeholder="Description" />
+          </p>
+          <p>
+            <input type="text" placeholder="Web-Url" />
+          </p>
+          <p>
+            <input type="text" placeholder="Code-Url" />
+          </p>
 
-        <p>
-          <input type="file" placeholder="Image" />
-        </p>
-        <button type="submit">Submit</button>
-        <button onClick={() => auth.signOut()}>Sign Out</button>
-      </form>
+          <p>
+            <input type="file" placeholder="Image" />
+          </p>
+          <button type="submit">Submit</button>
+          <button onClick={() => auth.signOut()}>Sign Out</button>
+        </form>
+      </div>
+      <DashboardList portfolioList={portfolioList} getData={getData}/>
     </div>
   )
 }
