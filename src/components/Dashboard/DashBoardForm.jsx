@@ -4,14 +4,16 @@ import { auth, storage, db } from '../../firebase'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { addDoc, getDocs } from 'firebase/firestore'
 import { collection } from 'firebase/firestore'
+// Components
 import DashboardList from './DashboardList'
+import Edit from './Edit'
 // import { useNavigate } from 'react-router-dom'
 // TODO: setIsFecthing Data
 const DashBoardForm = () => {
   // const navigate = useNavigate()
   const form = useRef()
   const [portfolioList, setportfolioList] = useState([])
-
+  const [projectToEdit, setProjectToEdit] = useState([])
 
   const submitPortfolio = async (e) => {
     e.preventDefault()
@@ -91,7 +93,12 @@ const DashBoardForm = () => {
           <button onClick={() => auth.signOut()}>Sign Out</button>
         </form>
       </div>
-      <DashboardList portfolioList={portfolioList} getData={getData}/>
+      <DashboardList
+        portfolioList={portfolioList}
+        getData={getData}
+        setProjectToEdit={setProjectToEdit}
+      />
+      <Edit  projectToEdit={projectToEdit}/>
     </div>
   )
 }
