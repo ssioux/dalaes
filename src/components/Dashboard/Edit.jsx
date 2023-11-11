@@ -1,33 +1,36 @@
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 
 function Edit({projectToEdit}) {
-  console.log("🚀 ~ file: Edit.jsx:6 ~ Edit ~ projectToEdit:", projectToEdit)
-  
-  
-  useEffect(() => {
-    
-      
-    
-  }, [])
+  const {image, webUrl, codeUrl, description, name} = projectToEdit
+ 
+  const [nameInput, setNameInput] = useState("")
+  const [descriptionInput, setDescriptionInput] = useState("")
+  const [webUrlInput, setWebUrlInput] = useState("")
+  const [codeUrlInput, setCodeUrlInput] = useState("")
+  const [imageInput, setImageInput] = useState("")
 
+  
 
+  const updateProject = () => {
+ 
+  }
 
   return (
     <div className="dashboard-edit">
-      <form>
+      <form onSubmit={updateProject}>
         <p>
-          <input type="text" placeholder="Name" />
+          <input type="text" placeholder={name} onChange={(e) => setNameInput(e.target.value)} value={nameInput}/>
         </p>
         <p>
-          <textarea placeholder="Description" />
+          <textarea placeholder={description} onChange={(e) => setDescriptionInput(e.target.value)} value={descriptionInput} />
         </p>
         <p>
-          <input type="text" placeholder="Web-Url" />
+          <input type="text" placeholder={webUrl} onChange={(e) => setWebUrlInput(e.target.value)} value={webUrlInput} />
         </p>
         <p>
-          <input type="text" placeholder="Code-Url" />
+          <input type="text" placeholder={codeUrl} onChange={(e) => setCodeUrlInput(e.target.value)} value={codeUrlInput} />
         </p>
 
         <p>
