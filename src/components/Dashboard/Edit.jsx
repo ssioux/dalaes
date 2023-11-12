@@ -14,7 +14,7 @@ function Edit({projectToEdit}) {
   
 
   const updateProject = () => {
- 
+    // TODO: Connect to data base for update one portfolio
   }
 
   return (

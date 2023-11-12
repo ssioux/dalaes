@@ -8,7 +8,6 @@ import { db } from '../../firebase'
 const Portfolio = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
   const [portfolio, setPortfolio] = useState([])
-  console.log("🚀 ~ Portfolio ~ ", portfolio)
   
 
   useEffect(() => {

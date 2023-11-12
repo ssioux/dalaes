@@ -15,7 +15,6 @@ function Game() {
   // ai-skill (0-2)
   const [aiSkill, setAiSkill] = useState(0)
   const [easyBtn, setEasyBtn] = useState(classBtn)
-  console.log("🚀 ~ file: Game.jsx:18 ~ Game ~ easyBtn:", easyBtn)
   const [mediumBtn, setMediumBtn] = useState(classBtn)
   const [hardBtn, setHardBtn] = useState(classBtn)
 

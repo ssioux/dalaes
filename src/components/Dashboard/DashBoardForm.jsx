@@ -7,10 +7,10 @@ import { collection } from 'firebase/firestore'
 // Components
 import DashboardList from './DashboardList'
 import Edit from './Edit'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 // TODO: setIsFecthing Data
 const DashBoardForm = () => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   const form = useRef()
   const [portfolioList, setportfolioList] = useState([])
   const [projectToEdit, setProjectToEdit] = useState([])
@@ -64,8 +64,7 @@ const DashBoardForm = () => {
         }))
       )
     } catch (error) {
-      console.log(error)
-      // navigate("/error")
+      navigate("/error")
     }
   }
 
@@ -98,7 +97,7 @@ const DashBoardForm = () => {
         getData={getData}
         setProjectToEdit={setProjectToEdit}
       />
-      <Edit  projectToEdit={projectToEdit}/>
+      <Edit projectToEdit={projectToEdit} />
     </div>
   )
 }

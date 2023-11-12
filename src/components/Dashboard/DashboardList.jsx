@@ -2,7 +2,11 @@ import { deleteDoc, doc, getDoc, updateDoc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
 import { db } from '../../firebase'
 
-export default function DashboardList({ portfolioList, getData, setProjectToEdit }) {
+export default function DashboardList({
+  portfolioList,
+  getData,
+  setProjectToEdit,
+}) {
   const navigate = useNavigate()
 
   const deleteProject = async (id) => {
@@ -11,28 +15,21 @@ export default function DashboardList({ portfolioList, getData, setProjectToEdit
       await deleteDoc(eachProject)
       getData()
     } catch (error) {
-      console.log(error)
+  
       navigate('/error')
     }
   }
 
   const idSelector = async (id) => {
-   
-   
     try {
       const project = doc(db, 'portfolio', id)
 
       const projectById = await getDoc(project)
-     
-      
-      setProjectToEdit(projectById.data())
 
-      
-      
+      setProjectToEdit(projectById.data())
     } catch (error) {
 
-      console.log(error)
-      navigate("/error")
+      navigate('/error')
     }
   }
 
