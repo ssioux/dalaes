@@ -14,6 +14,8 @@ const DashBoardForm = () => {
   const form = useRef()
   const [portfolioList, setportfolioList] = useState([])
   const [projectToEdit, setProjectToEdit] = useState([])
+  const [project, setProject] = useState()
+
 
   const submitPortfolio = async (e) => {
     e.preventDefault()
@@ -96,8 +98,10 @@ const DashBoardForm = () => {
         portfolioList={portfolioList}
         getData={getData}
         setProjectToEdit={setProjectToEdit}
+        setProject={setProject}
+
       />
-      <Edit projectToEdit={projectToEdit} />
+      <Edit projectToEdit={projectToEdit} project={project}/>
     </div>
   )
 }

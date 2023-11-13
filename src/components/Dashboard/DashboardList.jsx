@@ -1,4 +1,4 @@
-import { deleteDoc, doc, getDoc, updateDoc } from 'firebase/firestore'
+import { deleteDoc, doc, getDoc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
 import { db } from '../../firebase'
 
@@ -6,6 +6,7 @@ export default function DashboardList({
   portfolioList,
   getData,
   setProjectToEdit,
+  setProject
 }) {
   const navigate = useNavigate()
 
@@ -27,6 +28,7 @@ export default function DashboardList({
       const projectById = await getDoc(project)
 
       setProjectToEdit(projectById.data())
+      setProject(project)
     } catch (error) {
 
       navigate('/error')

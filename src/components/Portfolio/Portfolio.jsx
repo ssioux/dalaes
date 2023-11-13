@@ -4,8 +4,10 @@ import AnimatedLetters from '../AnimatedLetters/AnimatedLetters'
 import { useEffect, useState } from 'react'
 import { getDocs, collection } from 'firebase/firestore'
 import { db } from '../../firebase'
+import { useNavigate } from 'react-router-dom'
 
 const Portfolio = () => {
+  const navigate = useNavigate()
   const [letterClass, setLetterClass] = useState('text-animate')
   const [portfolio, setPortfolio] = useState([])
   
@@ -27,7 +29,7 @@ const Portfolio = () => {
       setPortfolio(querySnapshot.docs.map((doc) => ({...doc.data(), id:doc.id})))
       
     } catch (error) {
-      console.log(error)
+      navigate("/error")
     }
   }
 
