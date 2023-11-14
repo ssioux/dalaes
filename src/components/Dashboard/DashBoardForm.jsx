@@ -13,9 +13,8 @@ const DashBoardForm = () => {
   const navigate = useNavigate()
   const form = useRef()
   const [portfolioList, setportfolioList] = useState([])
-  const [projectToEdit, setProjectToEdit] = useState([])
+  const [projectToEdit, setProjectToEdit] = useState({name: "select project to edit", webUrl: "", codeUrl: "", description: "", image: ""})
   const [project, setProject] = useState()
-
 
   const submitPortfolio = async (e) => {
     e.preventDefault()
@@ -66,7 +65,7 @@ const DashBoardForm = () => {
         }))
       )
     } catch (error) {
-      navigate("/error")
+      navigate('/error')
     }
   }
 
@@ -99,9 +98,8 @@ const DashBoardForm = () => {
         getData={getData}
         setProjectToEdit={setProjectToEdit}
         setProject={setProject}
-
       />
-      <Edit projectToEdit={projectToEdit} project={project}/>
+      <Edit projectToEdit={projectToEdit} project={project} />
     </div>
   )
 }

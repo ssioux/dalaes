@@ -1,33 +1,46 @@
 import { updateDoc } from 'firebase/firestore'
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { storage } from '../../firebase'
 
 function Edit({ projectToEdit, project }) {
+  
   const navigate = useNavigate()
 
   const { image, webUrl, codeUrl, description, name } = projectToEdit
 
 
-  const [nameInput, setNameInput] = useState("")
-  
-  const [descriptionInput, setDescriptionInput] = useState("")
- 
-  const [webUrlInput, setWebUrlInput] = useState("")
+  const [nameInput, setNameInput] = useState(name)
 
-  const [codeUrlInput, setCodeUrlInput] = useState("")
+  const [descriptionInput, setDescriptionInput] = useState(description)
 
-  // const [imageInput, setImageInput] = useState(image)
+  const [webUrlInput, setWebUrlInput] = useState(webUrl)
+
+  const [codeUrlInput, setCodeUrlInput] = useState(codeUrl)
+  const [imageInput, setImageInput] = useState(image)
+
 
   const updateProject = async (e) => {
     e.preventDefault()
-    const inputData = {
-      name: nameInput,
-      description: descriptionInput,
-      webUrl: webUrlInput,
-      codeUrl: codeUrlInput,
-      image: image,
-    }
+
+
     try {
+
+      // 1 - Location where the picture is gonna be saved
+      const storageRef = ref(storage, `portfolio/${imageInput.name}`) // 1- storage, 2-image-name-URL || 1 {the ref}, 2 {file it-self}
+      // 2 - uploading the picture to firebase storage
+      const snapShot = await uploadBytes(storageRef, image)
+      // 3 - picture Url
+      const downloadUrl = await getDownloadURL(snapShot.ref)
+
+      const inputData = {
+        name: nameInput,
+        description: descriptionInput,
+        webUrl: webUrlInput,
+        codeUrl: codeUrlInput,
+        image: downloadUrl,
+      }
       // project getDoc from props + inputs object to update
       await updateDoc(project, inputData)
       window.location.reload(false)
@@ -45,6 +58,7 @@ function Edit({ projectToEdit, project }) {
     setDescriptionInput(description)
     setNameInput(name)
     setWebUrlInput(webUrl)
+    setImageInput(image)
   }
   return (
     <div className="dashboard-edit">
@@ -81,14 +95,13 @@ function Edit({ projectToEdit, project }) {
           />
         </p>
 
-        {/* <p>
+        <p>
           <input
             type="file"
             placeholder={image}
-            onChange={(e) => setImageInput(e.target.value)}
-            value={imageInput}
+            onChange={(e) => setImageInput(e.target.files[0])}
           />
-        </p> */}
+        </p>
         <button type="submit" onClick={updateProject}>
           Edit
         </button>

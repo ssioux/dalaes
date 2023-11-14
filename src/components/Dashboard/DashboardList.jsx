@@ -6,7 +6,7 @@ export default function DashboardList({
   portfolioList,
   getData,
   setProjectToEdit,
-  setProject
+  setProject,
 }) {
   const navigate = useNavigate()
 
@@ -16,7 +16,6 @@ export default function DashboardList({
       await deleteDoc(eachProject)
       getData()
     } catch (error) {
-  
       navigate('/error')
     }
   }
@@ -30,7 +29,6 @@ export default function DashboardList({
       setProjectToEdit(projectById.data())
       setProject(project)
     } catch (error) {
-
       navigate('/error')
     }
   }
